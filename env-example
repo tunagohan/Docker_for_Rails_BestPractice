@@ -1,0 +1,38 @@
+####################
+### BASE SETTING ###
+####################
+
+# application path
+APPLICATION_PATH=
+
+###################
+### APP SETTING ###
+###################
+
+# production setting
+RAILS_ENVIRONMENT=
+
+# Rails port
+APP_PORT=
+
+##################
+### DB SETTING ###
+##################
+
+# Database port
+DB_PORT=
+
+# MySQL settings
+DB_ROOT_PASSWORD=
+DB_USERNAME=
+DB_PASSWORD=
+
+######################
+### SERVER SETTING ###
+######################
+
+# SERVER port
+SERVER_PORT=
+
+
+##### Finished #####
