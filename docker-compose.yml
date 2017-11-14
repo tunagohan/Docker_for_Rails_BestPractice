@@ -1,14 +1,14 @@
 version: '2'
 services:
   datastore:
-    container_name: kintai_datastore
+    container_name: r_busybox
     image: busybox
     volumes:
       - /share
       - ./mysql/volumes:/var/lib/mysql
       - /etc/localtime:/etc/localtime:ro
   server:
-    container_name: kintai_nginx
+    container_name: r_nginx
     build:
       context: .
       dockerfile: ./nginx/Dockerfile
@@ -19,7 +19,7 @@ services:
     depends_on:
       - datastore
   app:
-    container_name: kintai_rails
+    container_name: r_rails
     build:
       context: .
       dockerfile: ./rails/Dockerfile
@@ -41,7 +41,7 @@ services:
       file: ./mysql/password.yml
       service: password
   db:
-    container_name: kintai_mysql
+    container_name: r_mysql
     build:
       context: .
       dockerfile: ./mysql/Dockerfile

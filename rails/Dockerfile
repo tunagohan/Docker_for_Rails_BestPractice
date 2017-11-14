@@ -7,12 +7,13 @@ RUN apt-get update -qq && \
                        nodejs \
                        mysql-client
 
+ENV APPPATH {app_path}
 RUN mkdir /app
 WORKDIR /app
-ADD ./kintai_contact_web/Gemfile /app/Gemfile
-ADD ./kintai_contact_web/Gemfile.lock /app/Gemfile.lock
+ADD ./$APPPATH/Gemfile /app/Gemfile
+ADD ./$APPPATH/Gemfile.lock /app/Gemfile.lock
 RUN bundle install -j4
-ADD ./kintai_contact_web /app
+ADD ./$APPPATH /app
 RUN mkdir -p tmp/sockets
 
 EXPOSE 3000
