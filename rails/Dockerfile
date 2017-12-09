@@ -7,13 +7,12 @@ RUN apt-get update -qq && \
                        nodejs \
                        mysql-client
 
-ENV APPPATH {app_path}
 RUN mkdir /app
 WORKDIR /app
-ADD ./$APPPATH/Gemfile /app/Gemfile
-ADD ./$APPPATH/Gemfile.lock /app/Gemfile.lock
+ADD ./app/Gemfile /app/Gemfile
+ADD ./app/Gemfile.lock /app/Gemfile.lock
 RUN bundle install -j4
-ADD ./$APPPATH /app
+ADD ./app /app
 RUN mkdir -p tmp/sockets
 
 EXPOSE 3000
