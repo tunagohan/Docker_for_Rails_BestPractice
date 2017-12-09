@@ -21,6 +21,17 @@ $ cd Docker_for_Rails_BestPractice
 $ git clone {動かしたいRails_APP}
 ```
 
+ない場合は./app配下に作られます。
+
+Gemfile.lockを作成してください。
+
+## .env の編集
+
+```
+$ cp env-example .env
+$ vi .env
+```
+
 ## 最終的なディレクトリ構成図
 
 ```
@@ -39,6 +50,8 @@ Rails_APP
          ├── docker-compose.yml
          └── .env
 ```
+
+
 
 ## 始め方
 
@@ -61,3 +74,12 @@ $ docker-compose run --rm app rake db:create
 ```
 $ docker-compose run --rm app rake db:migrate
 ```
+
+## 始め方２（rails newしたい場合）
+
+`Docker_for_Rails_BestPractice`で以下を叩く
+
+### docker-compose run
+
+docker-compose run web rails new . --force --database=mysql
+
